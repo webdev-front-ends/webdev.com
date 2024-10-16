@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebDev.com</title>
+    <link rel="shortcut icon" type="x-icon" href="/Users/obelixthegaul/Desktop/logowevdev.png">
+    <style>
+        /* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background: linear-gradient(135deg, #f0f0f0, #e2e2e2);
+}
+h1, h2, h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* Navigation Bar */
+.navbar {
+  transition: background-color 0.4s ease; /* Smooth transition for background color */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background-color: transparent;
+  color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.4s ease;
+  border-bottom: 2px solid #fff;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+.nav-links a {
+  font-size: 25px;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  position: relative;
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0%;
+  height: 3px;
+  background-color: #ffffff;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+.nav-links a:hover {
+  color: #ffffff;
+  transform: scale(1.05);
+}
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+/* Styling for the active section in the navbar */
+.nav-links a.active::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-links a.active {
+  transform: scale(1.05); /* Optional: Keep the scale animation on active */
+}
+
+.logo:hover{
+  transform: scale(1.2);
+  transition: 0.4s ease-in-out;
+  transition: 0.4s ease;
+}
+.button {
+  background: linear-gradient(to right, #ff9900, #ffff00);
+  color: rgb(0, 0, 0);
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  font-size: 15px;
+}
+.button:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background-image: url('hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease-in-out;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://knowledgeque.com/wp-content/uploads/2023/12/zeeconvert-com-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: opacity 0.4s ease;
+}
+.hb{
+    width: 800px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    border: 2px solid #fff;
+    border-radius: 30px;
+    color: #fff;
+    text-align: center;
+}
+.hero:hover::before {
+  opacity: 0.8; /* Darkens on hover */
+}
+.hero-content {
+  z-index: 1;
+  max-width: 800px;
+  transform: translateY(20px);
+  animation: slideUp 0.5s forwards 0.3s; /* Slide up animation */
+}
+.hero h1 {
+  font-size: 48px;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease forwards;
+  margin-top: 40px;
+  transition: 0.4s ease;
+}
+.hero h1:hover{
+  color: transparent;
+  -webkit-text-stroke: 1.2px #fff;
+  transition: 0.4s ease;
+}
+.hero p {
+  font-size: 25px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.5s;
+}
+.hero-buttons .btn {
+  padding: 15px 40px;
+  font-size: 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.create-btn {
+  background-color: #00bcd4;
+  color: white;
+  margin-left: 10px;
+}
+.hire-btn {
+  background: linear-gradient(to right, #ff9900, #ffff00);
+  color: rgb(0, 0, 0);
+  margin-left: 10px;
+}
+.create-btn:hover, .hire-btn:hover {
+  transform: translateY(-10px) scale(1.1) rotate(5deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Services Section */
+.services {
+  padding: 80px 5%;
+  background-color: #fafafa;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+.service-boxes {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+}
+.service-box {
+  width: 30%;
+  padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+.service-box:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.service-icon {
+  font-size: 50px;
+  margin-bottom: 20px;
+  transition: transform 0.4s ease;
+}
+.service-box:hover .service-icon {
+  transform: scale(1.3);
+}
+
+/* Hire a Pro Section */
+.hire-pro {
+  padding: 80px 5%;
+  background-color: #f9f9f9;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+.hire-options {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+}
+.developer-card {
+  width: 30%;
+  padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.developer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+.developer-card:hover::before {
+  opacity: 1;
+}
+.developer-card:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Pricing Section */
+.pricing {
+  padding: 80px 5%;
+  background-color: #fafafa;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+.pricing-tables {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+}
+.pricing-table {
+  width: 30%;
+  padding: 40px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.pricing-table:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.pricing-table h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+.pricing-table p {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.pricing-table ul li{
+  font-size: 20px;
+}
+.fanum{
+  color: #fff;
+  background: linear-gradient(to right, rgb(136, 0, 225),  rgb(0, 0, 225), rgb(0, 183, 255));
+  width: 454px;
+  height: 75px;
+  border-radius:  15px 15px 0px 0px;
+  margin-top: -44px;
+  margin-left: -44px;
+  padding: 17.5px;
+}
+/* whyus */
+.whyus{
+  padding: 80px 5%;
+  background-color: #fafafa;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+/* About section */
+.about{
+  padding: 80px 5%;
+  background-color: #fafafa;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+.pboxa{
+  width: 1500px;
+  padding: 40px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.pboxa:hover{
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+/* Contact Section */
+.contact {
+  padding: 80px 5%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+.contact h1:hover{
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+  transition: 0.4s ease;
+}
+.contact-form {
+  margin-top: 40px;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 80%;
+  padding: 15px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border 0.4s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 2px solid #ff9900;
+}
+.contact-form button {
+  background-color: #ff9900;
+  color: white;
+  padding: 15px 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.contact-form button:hover {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+  margin-top: 60px;
+  padding: 30px 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+        @keyframes footer-fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.1em;
+            color: #FFD700;
+            letter-spacing: 1.5px;
+        }
+.chat-container {
+    width: 100%;
+    max-width: 450px;
+    height: 80vh;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: fixed;
+    bottom:80px; /* Position above the button */
+    right: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10000000000000000000000000;
+}
+
+#chatbox {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    color: #f5f5f5;
+    background-color: #000000;
+}
+
+.chat-message {
+    margin: 10px 0;
+    padding: 12px 16px;
+    border-radius: 20px;
+    max-width: 80%;
+    display: inline-block;
+}
+
+.user-message {
+    background-color: #fff;
+    align-self: flex-end;
+    color: #000000;
+    border-radius: 20px 20px 0px 20px;
+}
+
+.bot-message {
+    background-color: #fff;
+    color: #000000;
+    border-radius: 20px 20px 20px 0px;
+}
+
+.chat-input-container {
+    padding: 10px;
+    background-color: #1a1a1a;
+    border-top: 1px solid #444444;
+    display: flex;
+    align-items: center;
+}
+
+#userInput {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #2c2c2c;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    margin-right: 10px;
+}
+
+
+.chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-image: url(DALL·E\ 2024-10-10\ 18.57.38\ -\ A\ modern\ and\ minimalistic\ logo\ for\ an\ AI-powered\ chatbot\ called\ \'WEBDY\ AI\'\,\ designed\ for\ a\ website\ that\ specializes\ in\ web\ development\ called\ webdev.c.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: none;
+    border-radius: 30px 30px 0px 30px;
+    width: 50px;
+    height: 50px;
+    z-index: 200;
+    width: 60px;
+    height: 60px;
+    transition: 0.5s ease-in-out;
+}
+.chatbot-button:hover {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-image: url(DALL·E\ 2024-10-10\ 18.57.38\ -\ A\ modern\ and\ minimalistic\ logo\ for\ an\ AI-powered\ chatbot\ called\ \'WEBDY\ AI\'\,\ designed\ for\ a\ website\ that\ specializes\ in\ web\ development\ called\ webdev.c.webp);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: cover;
+    border: none;
+    border-radius: 30px 30px 0px 30px;
+    width: 50px;
+    height: 50px;
+    z-index: 200;
+    width: 60px;
+    height: 60px;  
+    transform: scale(1.25); 
+    transition: 0.5s ease-in-out;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 450px;
+    height: 83vh; /* Chat box height */
+    background-color: #1a1a1a; /* Slightly lighter background */
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: fixed;
+    margin-bottom: 10px;
+    margin-left: 1000px;
+}
+
+#chatbox {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    color: #f5f5f5;
+    background-color: #000000; /* Keep chat area pure black */
+}
+
+.chat-message {
+    margin: 10px 0;
+    padding: 12px 16px;
+    border-radius: 20px;
+    max-width: 80%;
+    display: inline-block;
+}
+
+.user-message {
+    background-color: #fff;
+    align-self: flex-end;
+    color: #000000;
+    border-radius: 20px 20px 0px 20px;
+}
+
+.bot-message {
+    background-color: #fff;
+    color: #000000;
+    border-radius: 20px 20px 20px 0px;
+}
+
+.chat-input-container {
+    padding: 10px;
+    background-color: #1a1a1a;
+    border-top: 1px solid #444444;
+    display: flex;
+    align-items: center;
+}
+
+#userInput {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #2c2c2c;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+#sendButton {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    margin-left: -15px;
+}
+
+/* Additional styling for quick suggestions like in the image */
+.suggestion-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding:  10px 10px 10px 10px;
+    background-color: #1a1a1a;
+    height: 160px;
+    width: 100%;
+    font-size: cover;
+    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+.suggestion {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.suggestion:hover {
+    background-color: #3e3e3e;
+    transform: scale(1.1);
+    transition: 0.5s;
+    border-radius: 15px;
+}
+
+/* Chatbox header */
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #f00, #00f);
+    border-bottom: 1px solid #444444;
+}
+
+.chat-header img {
+    width: 40px;
+}
+
+.chat-header-title {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+.scrollToTopBtn{
+  position: fixed;
+  z-index: 999999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  bottom: 20px;
+  right: 120px;
+  border: 1px solid #000;
+  transition: 0.3s ease-in;
+  background-color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+.scrollToTopBtn:hover{
+  transform: scale(1.2);
+  transition: 0.3s ease-in;
+}
+    </style>
+</head>
+<body>
+  <div class="chat-container" id="chatbot">
+    <div class="chat-header">
+        <img src="DALL·E 2024-10-10 18.57.38 - A modern and minimalistic logo for an AI-powered chatbot called 'WEBDY AI', designed for a website that specializes in web development called webdev.c.webp" style="border-radius: 50%; width: 40px; height: 40px;">
+        <div class="chat-header-title">Webdy AI Chatbot</div>
+    </div>
+
+    <div id="chatbox" class="chatbox">
+        <div class="chat-message bot-message">Hi, I am WebdyAI! I am a chatbot there to help you. If you have any query related to this site or any doubt at all, please feel free to ask 😊</div>
+    </div>
+
+    <div class="suggestion-container">
+      <div class="suggestion" onclick="quickReply('How do I fill in the form to have my website made?')" style="margin-left: 520px;">How do I fill in the form to make my website</div>
+        <div class="suggestion" onclick="quickReply('What are the website options?')">What are the website options?</div>
+        <div class="suggestion" onclick="quickReply('How can I get my own website?')">How can I get my own website?</div>
+        <div class="suggestion" onclick="quickReply('How long does it take to get a website?')">How long does it take to get a website?</div>
+        <div class="suggestion" onclick="quickReply('Do you also do backend and coding?')">Do you also do backend and coding?</div>
+        <div class="suggestion" onclick="quickReply('How will you contact me back?')">How will you contact me back?</div>
+        <div class="suggestion" onclick="quickReply('How will I get my website once it is finished?')">How will I get my website once it is finished?</div>
+        <div class="suggestion" onclick="quickReply('How do I pay?')">How do I pay?</div>
+        <div class="suggestion" onclick="quickReply('How expensive is a website?')">How expensive is a website?</div>
+        <div class="suggestion" onclick="quickReply('How do I E-mail you?')">How do I E-mail you?</div>
+    </div>
+
+    <div class="chat-input-container">
+        <input id="userInput" type="text" placeholder="Ask here...">
+        <button id="sendButton" onclick="sendMessage()" style="margin-bottom: 17.5px;">➤</button>
+    </div>
+</div>
+<button class="chatbot-button" onclick="toggleChatbot()"></button>
+<script>
+    // Placeholder sendMessage function
+    function sendMessage() {
+      const message = document.getElementById('userInput').value;
+      alert('Message sent: ' + message);
+      // Clear input after sending
+      document.getElementById('userInput').value = '';
+    }
+
+function toggleChatbot() {
+const chatbot = document.getElementById('chatbot');
+if (chatbot.style.opacity === '1') {
+    chatbot.style.opacity = '0'; // Hide
+    chatbot.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+        chatbot.style.display = 'none'; // Set display to none after transition
+    }, 300); // Match the duration of the transition
+} else {
+    chatbot.style.display = 'flex'; // Show
+    setTimeout(() => {
+        chatbot.style.opacity = '1'; // Fade in
+        chatbot.style.transform = 'translateY(0)';
+    }, 10); // Delay to allow display to take effect
+}
+}
+
+const olympicsData = {
+"How expensive is a website?": " A website can cost depending on what type you choose. they are: Basic - ₹1,999, Standard - ₹5,999 and Premium - ₹8,999. For more details, click on the pricing link on the navbar at the top of your screen.",
+"What are the website options?": "You can choose between 3 types of websites, and those are Basic, Standard and Premium. you can also tell what you want it for and a detailed description about it while filling in the form.",
+"How can I get my own website?": "You can get your own website filling in the form. Once you fiil and submit it, and do the payment. We will contact you by E-mail soon and tell you more details. Once it is done, we will message you the files and (if reqiired)images/videos.",
+"How long does it take to get a website?": "It will depend on what type you choose. It will take 1-2 weeks for a basic site, about a month for a standard website and about less than 2 months for a premium website, although it will also depend on how much content you want and your description that you fill in the form",
+"Do you also do backend and coding?": "No, we do not do any backend programming. we only make html and css as the Front-end and the backend can be done by you or some other developer that you choose. Though we can do some javascript in the html only but for basic items such as a cool navbar that changes color or a back to top button, etc... !!NO CODE WILL BE MADE EVEN ON REQUESTING AND ONLY HTML5 AND CSS3 WILL BE DONE!!",
+"How will you contact me back?": "Once you fill in the form, we will view your mobile no./e-mail id and contact you as soon as possible through your mobile no./e-mail id to send you the final website or give you more details about the website that you are going to get",
+"How will I get my website once it is finished?": "When you are filling the form, you will leave your mobile no./e-mail id and once your website is done, we will contact you and message you the files and (if reqiired)images/videos.",
+"How do I fill in the form to have my website made?": "You can do that by looking at the extreme top left corner of the page in the navbar  and you will see a yellow button that says Get started. Click on that and you will be directed to the form site where you can fill in all your details. ",
+"How do I pay?":"After filling and submitting the form, you will be directed to a site with a QRcode on Google pay where you can make the payments",
+"hi":"Hello, I am WebdyAI! I am a chatbot there to help you. If you have any query related to this site or any doubt at all, please feel free to ask 😊",
+"hello":"Hi, I am WebdyAI! I am a chatbot there to help you. If you have any query related to this site or any doubt at all, please feel free to ask 😊",
+"How do I E-mail you?":"You can E-mail us at webdev.guru2024@gmail.com . We will contact you back as soon as  possible",
+"How can i contact you":"You can E-mail us at webdev.guru2024@gmail.com . We will contact you back as soon as  possible",
+"how can i pay":"After filling and submitting the form, you will be directed to a site with a QRcode on Google pay where you can make the payments",
+"how can i fill the form":"You can do that by looking at the extreme top left corner of the page in the navbar and you will see a yellow button that says Get started. Click on that and you will be directed to the form site where you can fill in all your details.",
+"":"",
+"":"",
+"ur mom": "U have L rizz, no aura and a double chin with a negitive, blunt af jawline with a 16:2 body and you are a cronnically online fat discord mod and you are not a sigma but you are skibidi and horzontally tall and gravitationally gifted and after this, you still think i am roasting you, but i am describing you. And you still have the audacity to have too much on your plate and say these jokes to me.... When i poctured you in my head, my neck broke, you are so fat that you sweat gravy, when i hung a picture of you on the wall, the building collapsed, even the An225-mriya cannot lift you... :)",
+};
+
+// Levenshtein distance function to calculate similarity between strings
+function levenshtein(a, b) {
+const matrix = [];
+let i, j;
+
+if (!a.length) return b.length;
+if (!b.length) return a.length;
+
+for (i = 0; i <= b.length; i++) {
+    matrix[i] = [i];
+}
+
+for (j = 0; j <= a.length; j++) {
+    matrix[0][j] = j;
+}
+
+for (i = 1; i <= b.length; i++) {
+    for (j = 1; j <= a.length; j++) {
+        if (b.charAt(i - 1) === a.charAt(j - 1)) {
+            matrix[i][j] = matrix[i - 1][j - 1];
+        } else {
+            matrix[i][j] = Math.min(
+                matrix[i - 1][j - 1] + 1,
+                matrix[i][j - 1] + 1,
+                matrix[i - 1][j] + 1
+            );
+        }
+    }
+}
+
+return matrix[b.length][a.length];
+}
+
+function findClosestMatch(userInput, data) {
+let bestMatch = null;
+let smallestDistance = Infinity;
+
+for (const key in data) {
+    const distance = levenshtein(userInput, key);
+
+    if (distance < smallestDistance) {
+        smallestDistance = distance;
+        bestMatch = key;
+    }
+}
+
+return bestMatch;
+}
+
+function sendMessage() {
+const userInput = document.getElementById('userInput').value.toLowerCase();
+
+if (userInput.trim() === '') {
+    return;
+}
+
+// Add user's message to chatbox
+const chatbox = document.getElementById('chatbox');
+const userMessage = document.createElement('div');
+userMessage.classList.add('chat-message', 'user-message');
+userMessage.textContent = userInput;
+chatbox.appendChild(userMessage);
+
+// Clear input box after sending the message
+document.getElementById('userInput').value = '';
+
+// Scroll to the bottom of the chatbox
+chatbox.scrollTop = chatbox.scrollHeight;
+
+// Get the bot's response
+setTimeout(() => {
+    const botMessage = document.createElement('div');
+    botMessage.classList.add('chat-message', 'bot-message');
+    
+    // Match user input to the closest available response
+    let response = getOlympicResponse(userInput);
+    
+    botMessage.textContent = response;
+    chatbox.appendChild(botMessage);
+    chatbox.scrollTop = chatbox.scrollHeight;
+}, 1000);
+}
+
+function getOlympicResponse(userInput) {
+const closestMatch = findClosestMatch(userInput, olympicsData);
+
+if (olympicsData[closestMatch]) {
+    return olympicsData[closestMatch];
+} else if (closestMatch.includes("record holders")) {
+    return olympicsData["record holders"];
+} else {
+    return "I don't have the information you're looking for. Try asking me something else about Webdy AI !";
+}
+}
+function quickReply(text) {
+document.getElementById('userInput').value = text;
+sendMessage(); // Automatically send the message
+}
+
+
+function quickReply(text) {
+document.getElementById('userInput').value = text;
+sendMessage(); // Automatically send the message
+}
+// Toggles chatbot visibility
+function toggleChatbot() {
+    const chatbot = document.getElementById('chatbot');
+    if (chatbot.style.opacity === '1') {
+        closeChatbot(); // Close the chatbot
+    } else {
+        chatbot.style.display = 'flex'; // Show chatbot
+        setTimeout(() => {
+            chatbot.style.opacity = '1'; // Fade in
+            chatbot.style.transform = 'translateY(0)';
+        }, 10);
+    }
+}
+
+// Close the chatbot
+function closeChatbot() {
+    const chatbot = document.getElementById('chatbot');
+    chatbot.style.opacity = '0'; // Hide
+    chatbot.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+        chatbot.style.display = 'none'; // Set display to none after transition
+    }, 300);
+}
+document.getElementById('userInput').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();  // Prevent default form submission (if any)
+        sendMessage();  // Trigger the send message function
+    }
+});
+
+
+// Event listener to close chatbot when clicking outside of it
+document.addEventListener('click', function(event) {
+    const chatbot = document.getElementById('chatbot');
+    const chatbotButton = document.querySelector('.chatbot-button');
+
+    // Check if the click is outside the chatbot and the chatbot button
+    if (!chatbot.contains(event.target) && !chatbotButton.contains(event.target)) {
+        if (chatbot.style.opacity === '1') {
+            closeChatbot(); // Close chatbot if it is open
+        }
+    }
+});
+// Function to scroll to top when the button is clicked
+function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll effect
+            });
+        }
+</script>
+
+<button id="scrollToTopBtn" class="scrollToTopBtn" onclick="scrollToTop()">⬆</button>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="logo"><img src="/Users/obelixthegaul/Desktop/logowevdev.png" width="80px" height="80px" style="border-radius: 20px; transition: 0.4s ease;"></div>
+          <ul class="nav-links">
+            <li><a href="#services" class="nav-item" id="nav-services">Services</a></li>
+            <li><a href="#hire" class="nav-item" id="nav-hire">Hire a Pro</a></li>
+            <li><a href="#pricing" class="nav-item" id="nav-pricing">Pricing</a></li>
+            <li><a href="#why-choose-us" class="nav-item" id="nav-whyus">Why Us?</a></li>
+            <li><a href="#about" class="nav-item" id="nav-about">About Us</a></li>
+            <li><a href="#getstarted" class="nav-item" id="nav-getstarted">Get Started</a></li>
+          </ul>
+        <a href="file:///Users/obelixthegaul/Downloads/website-contact.html" class="button" >Get started</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hb">
+        <div class="hero-content">
+            <h1>A quality website is not an expenses but rather an investment</h1>
+            <p>Create the front-end of your dream website with us today!</p>
+            <p style="margin-top: -30px;">We can make:</p>
+            </div>
+            <div class="hero-buttons" style="margin-top: -10px;">
+                <button class="btn create-btn" style="margin-right: 10px;">Basic Websites</button>
+                <button class="btn hire-btn" style="margin-right: 10px;">Professional Websites</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 style="margin-bottom: 20px; font-size: 50px;">Our Services</h2>
+        <div class="service-boxes">
+            <div class="service-box">
+                <div class="service-icon">🌐</div>
+                <h3>Website Design Front-End</h3>
+                <p>Beautiful and responsive designs that fit your needs and make your vision to life.</p>
+            </div>
+            <div class="service-box">   
+                <div class="service-icon">💻</div>
+                <h3>Custom Front-End Development</h3>
+                <p>Webdev.com specializes in crafting tailored front-end designs using HTML and CSS, creating unique, visually striking websites that align with each client’s brand identity.</p>
+            </div>
+            <div class="service-box">
+                <div class="service-icon">👨‍💻</div>
+                <h3>Front-End designer hire</h3>
+                <p>At Webdev.com, you can hire expert front-end developers to bring your vision to life with professional, high-quality designs.Our skilled team will deliver excellence tailored to your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hire a Pro Section -->
+    <section class="hire-pro" id="hire">
+        <h2 style="margin-bottom: 20px; font-size: 40px;">Hire a Professional Developing Team</h2>
+        <div class="hire-options">
+            <div class="developer-card">
+                <h3>Webdev basic plan</h3>
+                <p>Front-End Developing team</p>
+                <p style="margin-bottom: 20px;">Contact - webdev.guru2024@gmail.com</p>
+                <video src="/Users/obelixthegaul/Downloads/sta (online-video-cutter.com).mp4" autoplay muted loop style="width: 330px; height: 200px;"></video>
+            </div>
+            <div class="developer-card">
+                <h3>Webdev standard plan</h3>
+                <p>Front-End Developing team</p>
+                <p style="margin-bottom: 20px;">Contact - webdev.guru2024@gmail.com</p>
+                <video src="/Users/obelixthegaul/Downloads/sta1 (online-video-cutter.com).mp4" autoplay muted loop style="width: 330px; height: 200px;"></video>
+            </div>
+            <div class="developer-card">
+              <h3>Webdev premium plan</h3>
+              <p>Front-End Developing team</p>
+              <p style="margin-bottom: 20px;">Contact - webdev.guru2024@gmail.com</p>
+              <video src="/Users/obelixthegaul/Downloads/Design championship video (online-video-cutter.com).mp4" autoplay muted loop style="width: 330px; height: 200px;"></video>
+          </div>
+        </div>
+    </section>
+      
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2 style="margin-bottom: 100px; font-size: 50px;">Pricing Plans</h2>
+        <div class="pricing-tables">
+            <div class="pricing-table">
+                <h3>Basic</h3>
+                <p>₹1,999</p>
+                <p>Basic and a small website front-end with a minimalistic design</p>
+                <video src="/Users/obelixthegaul/Downloads/sta (online-video-cutter.com).mp4" autoplay muted loop style="width: 330px; height: 200px;"></video>
+                <p>Takes about a week or two to make</p>
+                <br>
+                <p><b>Features:</b></p>
+                <ul>
+                  <li>It is a small website but has a nice design and good CSS</li>
+                  <li>It is easy to navigate through but does not have much content</li>
+                  <li>Can fit 4-5 webpages with the main one being the biggest, best and linked to all pages</li>
+                  <li>Recommended for small information pages or personal projects/portfolios </li>
+                  <li>Easy to understand and use with a decent UI and UX</li>
+                </ul>
+            </div>
+            <div class="pricing-table">
+                <h3>Standard</h3>
+                <p>₹5,999</p>
+                <p>A small website, responsive front-end, stunning designs</p>
+                <video src="/Users/obelixthegaul/Downloads/sta1 (online-video-cutter.com).mp4" autoplay muted loop style="width: 330px; height: 200px;"></video>
+                <p>Takes about a month to make</p>
+                <br>
+                <p><b>Features:</b></p>
+                <ul>
+                  <li>It is a medium-sized webiste, about 7-8 webpages big</li>
+                  <li>It has a really good design in all the pages and the css looks great to attract the attention of customers</li>
+                  <li>Can hold alot more content than the basic plan and has a wonderful UI and UX </li>
+                  <li>Great for meudium scale businesses with a professional look and memorable experience</li>
+                  <li>Alot of cool design features such as a navbar that changes color and an advanced hamburger menu</li>
+                  <li>Great for sites that display alot of related information in an organised format and have a lot of content</li>
+                </ul>
+            </div>
+            <div class="pricing-table" style="border: 4px solid rgb(136, 0, 255); margin-top: -75px;">
+              <div class="fanum">
+                <h3 style="font-size: 35px; text-align: center; ">Most popular</h3>
+                </div>
+                <h3 style="padding: 30px;">Premium</h3>
+                <p><strike>₹10,000</strike> <span>₹8,999</span></p>
+                <p>All features with a stunning design, a complete website front-end</p>
+                <video src="/Users/obelixthegaul/Downloads/Design championship video (online-video-cutter.com).mp4" autoplay muted loop style="width: 330px; height: 200px;"></video>
+                <p>Takes about two months to make</p>
+                <p><b>Features:</b></p>
+                <br>
+                <ul>
+                  <li>Comes with a pre-programmed chatbot in javascript</li>
+                  <li>Recommended for E-commerce companies, companies with a large amount of data that needs to be expressed professionally, etc...</li>
+                  <li>It is a large-scale webiste, about 10-11 webpages big</li>
+                  <li>Has a stunning css design, making it look mordern, sleek and cool in all the web pages</li>
+                  <li>Tailored to your specific brand and business needs, offering a unique and professional look.</li>
+                  <li>Best option for  large scale businesses with a lot of content , a large audience and a lot of webpages</li>
+                  <li>Similar to the standard plan but a better design and alot more content, features and functionality</li>
+                  <li>Optimized HTML and CSS for fast load times, ensuring a smooth and efficient user experience.</li>
+                  <li>Multi-Page Functionality – Complete, multi-page site with blogs, portfolios, and more.</li>
+                  <li>Has embeded google maps, youtube videos, etc...</li>
+                </ul>
+            </div>
+        </div>
+        <div class="info">
+          
+        </div>
+    </section>
+    <!-- Why Choose Us Section -->
+<section class="why-choose-us" id="why-choose-us" style="padding: 80px 5%; background-color: #fafafa; text-align: center;">
+  <h2 style="font-size: 36px; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; font-size: 50px;">Why Choose Us?</h2>
+  <p style="margin-bottom: 20px; font-size: 25px;">At Webdev.co, we’re committed to delivering more than just a website—we create digital experiences that captivate, engage, and convert. Here’s why we stand out:</p>
+  <div class="choose-boxes" style="display: flex; justify-content: space-around; gap: 40px; flex-wrap: wrap;">
+      <div class="choose-box" style="width: 30%; padding: 30px; background-color: white; border-radius: 15px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; margin-bottom: 30px;">
+          <h3 style="font-size: 24px; margin-bottom: 20px;">Custom Designs Tailored to You</h3>
+          <p style="font-size: 18px; line-height: 1.8;">We believe that every business is unique, and your website should reflect that. Our designs are fully customized to match your brand identity and goals, ensuring your online presence feels personal and professional.</p>
+      </div>
+      <div class="choose-box" style="width: 30%; padding: 30px; background-color: white; border-radius: 15px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; margin-bottom: 30px;">
+          <h3 style="font-size: 24px; margin-bottom: 20px;">Stunning Visuals & Responsive Layouts</h3>
+          <p style="font-size: 18px; line-height: 1.8;">Our team specializes in creating visually striking, modern designs that look beautiful on any device. From desktops to smartphones, your website will be fully responsive, providing a seamless experience for every visitor.</p>
+      </div>
+      <div class="choose-box" style="width: 30%; padding: 30px; background-color: white; border-radius: 15px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; margin-bottom: 30px;">
+          <h3 style="font-size: 24px; margin-bottom: 20px;">Clean, Quality Code</h3>
+          <p style="font-size: 18px; line-height: 1.8;">We use the latest HTML and CSS standards to develop websites that are not only visually appealing but also optimized for performance. Our code is clean, lightweight, and built to ensure fast loading times and smooth functionality.</p>
+      </div>
+      <div class="choose-box" style="width: 30%; padding: 30px; background-color: white; border-radius: 15px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; margin-bottom: 30px;">
+          <h3 style="font-size: 24px; margin-bottom: 20px;">User-Centric Design Approach</h3>
+          <p style="font-size: 18px; line-height: 1.8;">We put your audience first. Our designs are intuitive, user-friendly, and geared toward enhancing user engagement, driving conversions, and boosting your brand's credibility online.</p>
+      </div>
+      <div class="choose-box" style="width: 30%; padding: 30px; background-color: white; border-radius: 15px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; margin-bottom: 30px;">
+          <h3 style="font-size: 24px; margin-bottom: 20px;">Expert Front-End Development</h3>
+          <p style="font-size: 18px; line-height: 1.8;">With years of experience in front-end design, we know how to translate your vision into a functional reality. Whether you need a simple, elegant site or a feature-rich platform, we have the expertise to deliver excellence.</p>
+      </div>
+      <div class="choose-box" style="width: 30%; padding: 30px; background-color: white; border-radius: 15px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; margin-bottom: 30px;">
+          <h3 style="font-size: 24px; margin-bottom: 20px;">Attention to Detail</h3>
+          <p style="font-size: 18px; line-height: 1.8;">Every element of your website, from typography to animations, is carefully crafted to create a polished, professional result. We ensure that your website reflects the quality of your business.</p>
+      </div>
+  </div>
+</section>
+
+    <!-- About Us -->
+    <section class="about" id="about">
+      <h2 style="margin-bottom: 20px; font-size: 50px;">About Us</h2>
+      <div class="pboxa">
+      <p>Webdev.co is your go-to platform for crafting high-quality, visually stunning front-end designs. Specializing in cutting-edge HTML and CSS development, we turn your ideas into reality with sleek, responsive, 
+        and engaging interfaces. Whether you're looking for minimalistic elegance or vibrant, interactive web pages, our designs are tailored to capture attention and elevate user experiences. At Webdev.co, we focus
+         on clean code, modern trends, and seamless functionality, ensuring your website looks great, mordern and stylish.
+        <br>
+        <b>!!  WE MAKE FRONTENDS ONLY IN HTML AND CSS  !!</b></p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="getstarted">
+        <h1 style="margin-bottom: 50px; font-size: 75px; transition: 0.4s ease;">Get Started</h1>
+        <a href="file:///Users/obelixthegaul/Downloads/website-contact.html" class="button">Get Started</a>
+        <p style="margin-top: 50px; font-size: 25px;">
+          Fill in your details in the form and chose your website plan to have the front-end of your dream website up and running in no time!
+        </p>
+        <section class="contact" id="contact">
+          <h2 style="margin-bottom: 50px; font-size: 45px;">Contact Us</h2>
+          <p style="font-size: 25px; margin-bottom: 40px;">
+          Call us at   +91 8090079949 / +91 9520912446
+           <br>
+           E-mail us at   webdev.guru2024@gmail.com
+        </p>
+        <h3>We are on:</h3>
+          <a href="https://www.youtube.com/@webdev-official_channel" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAW9JREFUaEPtWAEOwiAMpC/TvUz3MufL0BowBIqMtQwwXWJMto717kpbCmbyCyb33yiA3gqqAqoAkwENISaB7Nf/XwFr7dXRhP+XDGXeppbRjXjhGdzbAICy+ZpkFXCO34wxR52rBZOzXwHgnnv4C4CV8kBonYVSgwRgrUXEyP5IF4bTEjuUAHCh8xjJ88CXRAUKwIjsewzTA0g2NKUAhk/vzJOL4GQftACwNkwA7QHAO2kjfY0y2S4ArPzvAfgYkAYSr0+FkCgApwbuKfyxa0sXAJJqdAUgAUQBlFqMmKHQXqLD7aKAhOOeiNMB9EijrFZihELGAmCMwZ691UluVyXmAijtc87z6QHsaqex5I96IpseQPlE5pqvEfcBOV7JTSWGC6Nchf85WpQuQgfTD07mkH1yQlecjbo2IDwjx+NF7vk5N1783D88WjzI1umvFRU43aPKDyqASsLEzVUBcUorF1QFKgkTN1cFxCmtXPAFxXCyMd8dJT0AAAAASUVORK5CYII="/></a>
+      </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 WebDev.Com</p>
+    </footer>
+  </section>
+    <script>
+        // JavaScript to change navbar background on scroll
+        window.onscroll = function() {
+            var navbar = document.getElementById("navbar");
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 550) {
+                navbar.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
+            } else {
+                navbar.style.backgroundColor = "transparent";
+            }
+        };
+        // Select all sections and navbar links
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-item');
+
+// Add an event listener to track scroll
+window.addEventListener('scroll', () => {
+  let current = '';
+
+  // Check which section is currently in view
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+
+    if (pageYOffset >= sectionTop - sectionHeight / 3) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  // Remove active class from all links and add to the current section
+  navLinks.forEach((link) => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').includes(current)) {
+      link.classList.add('active');
+    }
+  });
+});
+
+    </script>
+</body>
+</html>
