@@ -284,25 +284,6 @@ p {
   position: relative;
   overflow: hidden;
 }
-.developer-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  transition: opacity 0.3s ease;
-  opacity: 0;
-}
-.developer-card:hover::before {
-  opacity: 1;
-}
-.developer-card:hover {
-  transform: scale(1.05) translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
 /* Pricing Section */
 .pricing {
   padding: 80px 5%;
