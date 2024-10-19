@@ -49,7 +49,7 @@ p {
   backdrop-filter: blur(10px);
   box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.4s ease;
-  border-bottom: 2px solid #fff;
+  border-bottom: 0.5px solid #fff;
 }
 .nav-links {
   list-style: none;
@@ -115,7 +115,7 @@ p {
 /* Hero Section */
 .hero {
   height: 100vh;
-  background-image: url('hero-bg.jpg');
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/910/119/771/developer-javascript-codes-coding-web-development-wallpaper-thumb.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -140,8 +140,7 @@ p {
   transition: opacity 0.4s ease;
 }
 .hb{
-    width: 800px;
-    padding: 10px;
+    padding: 20px;
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(20px);
     border: 2px solid #fff;
@@ -159,7 +158,7 @@ p {
   animation: slideUp 0.5s forwards 0.3s; /* Slide up animation */
 }
 .hero h1 {
-  font-size: 48px;
+  font-size: 50px;
   letter-spacing: 5px;
   margin-bottom: 20px;
   animation: fadeInUp 0.8s ease forwards;
@@ -172,32 +171,10 @@ p {
   transition: 0.4s ease;
 }
 .hero p {
-  font-size: 25px;
+  font-size: 27.5px;
   margin-bottom: 40px;
   opacity: 0;
   animation: fadeIn 1s ease forwards 0.5s;
-}
-.hero-buttons .btn {
-  padding: 15px 40px;
-  font-size: 25px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.create-btn {
-  background-color: #00bcd4;
-  color: white;
-  margin-left: 10px;
-}
-.hire-btn {
-  background: linear-gradient(to right, #ff9900, #ffff00);
-  color: rgb(0, 0, 0);
-  margin-left: 10px;
-}
-.create-btn:hover, .hire-btn:hover {
-  transform: translateY(-10px) scale(1.1) rotate(5deg);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* Animations */
@@ -284,6 +261,11 @@ p {
   position: relative;
   overflow: hidden;
 }
+.developer-card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
 /* Pricing Section */
 .pricing {
   padding: 80px 5%;
@@ -353,6 +335,11 @@ p {
 .pboxa:hover{
   transform: scale(1.05);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.choose-box:hover{
+  transform: scale(1.2);
+  transition: 0.4s ease-in-out;
 }
 /* Contact Section */
 .contact {
@@ -922,20 +909,15 @@ function scrollToTop() {
             <li><a href="#about" class="nav-item" id="nav-about">About Us</a></li>
             <li><a href="#getstarted" class="nav-item" id="nav-getstarted">Get Started</a></li>
           </ul>
-        <a href="https://webdev-front-ends.github.io/send-website-plan-webdev.com/" class="button" target="_Blank">Get started</a>
+        <a href="file:///Users/obelixthegaul/Downloads/website-contact.html" class="button" >Get started</a>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hb">
         <div class="hero-content">
-            <h1>A quality website is not an expenses but rather an investment</h1>
+            <h1>"A quality website is not an expenses but rather an investment"</h1>
             <p>Create the front-end of your dream website with us today!</p>
-            <p style="margin-top: -30px;">We can make:</p>
-            </div>
-            <div class="hero-buttons" style="margin-top: -10px;">
-                <button class="btn create-btn" style="margin-right: 10px;">Basic Websites</button>
-                <button class="btn hire-btn" style="margin-right: 10px;">Professional Websites</button>
             </div>
         </div>
     </section>
@@ -994,7 +976,7 @@ function scrollToTop() {
         <div class="pricing-tables">
             <div class="pricing-table">
                 <h3>Basic</h3>
-                <p>₹1,999</p>
+                <p>₹19,999</p>
                 <p>Basic and a small website front-end with a minimalistic design</p>
                 <iframe width="330" height="200" src="https://www.youtube.com/embed/cEO0Naf8040?si=_FoIOEnfL3JIbZIT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <p>Takes about a week or two to make</p>
@@ -1010,7 +992,7 @@ function scrollToTop() {
             </div>
             <div class="pricing-table">
                 <h3>Standard</h3>
-                <p>₹5,999</p>
+                <p>₹59,999</p>
                 <p>A small website, responsive front-end, stunning designs</p>
                 <iframe width="330" height="200" src="https://www.youtube.com/embed/edCuGkNrEC4?si=N5bsvbjYM05_Q4eK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <p>Takes about a month to make</p>
@@ -1030,7 +1012,7 @@ function scrollToTop() {
                 <h3 style="font-size: 35px; text-align: center; ">Most popular</h3>
                 </div>
                 <h3 style="padding: 30px;">Premium</h3>
-                <p><strike>₹10,000</strike> <span>₹8,999</span></p>
+                <p><strike>₹100,000</strike> <span>₹8,9999</span></p>
                 <p>All features with a stunning design, a complete website front-end</p>
                 <iframe width="330" height="200" src="https://www.youtube.com/embed/e6PrM3HzNS4?si=BB254xv8CsAtpnws" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <p>Takes about two months to make</p>
@@ -1101,7 +1083,7 @@ function scrollToTop() {
     <!-- Contact Section -->
     <section class="contact" id="getstarted">
         <h1 style="margin-bottom: 50px; font-size: 75px; transition: 0.4s ease;">Get Started</h1>
-        <a href="https://webdev-front-ends.github.io/send-website-plan-webdev.com/" class="button" target="_blank">Get Started</a>
+        <a href="file:///Users/obelixthegaul/Downloads/website-contact.html" class="button">Get Started</a>
         <p style="margin-top: 50px; font-size: 25px;">
           Fill in your details in the form and chose your website plan to have the front-end of your dream website up and running in no time!
         </p>
@@ -1113,7 +1095,7 @@ function scrollToTop() {
            E-mail us at   webdev.guru2024@gmail.com
         </p>
         <h3>We are on:</h3>
-                      <a href="https://www.youtube.com/@webdev-official_channel" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAW9JREFUaEPtWAEOwiAMpC/TvUz3MufL0BowBIqMtQwwXWJMto717kpbCmbyCyb33yiA3gqqAqoAkwENISaB7Nf/XwFr7dXRhP+XDGXeppbRjXjhGdzbAICy+ZpkFXCO34wxR52rBZOzXwHgnnv4C4CV8kBonYVSgwRgrUXEyP5IF4bTEjuUAHCh8xjJ88CXRAUKwIjsewzTA0g2NKUAhk/vzJOL4GQftACwNkwA7QHAO2kjfY0y2S4ArPzvAfgYkAYSr0+FkCgApwbuKfyxa0sXAJJqdAUgAUQBlFqMmKHQXqLD7aKAhOOeiNMB9EijrFZihELGAmCMwZ691UluVyXmAijtc87z6QHsaqex5I96IpseQPlE5pqvEfcBOV7JTSWGC6Nchf85WpQuQgfTD07mkH1yQlecjbo2IDwjx+NF7vk5N1783D88WjzI1umvFRU43aPKDyqASsLEzVUBcUorF1QFKgkTN1cFxCmtXPAFxXCyMd8dJT0AAAAASUVORK5CYII="/></a> <a href="https://www.instagram.com/webdev.com_official/" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAr5JREFUaEPtWT1rFUEUPUfBRrAUBEFEECSVWAmKplGstLLU+A9SiIUImsJKBP+B2lpZaCnGziqViI3EkFKshJRed5bdx7x5mZl7Nzu7WXjThMDszDn3nvsx9xETX5w4fiwJjO3BpQcm5wERud6Adn+vAWj/78plE8AX9zHJZ9ZDTBISkc89AM5h3LAQURForO7AD7lURLIERMS59emQyL27Vkk6iUWXhoCMBL6+lpWeOhMY2fot7qSUkuykYjCA9TeqxOBk4rJZTKpRKUUJDGT9Oesm7hyNgB+A+9ULLYGojEp4YLUJvoXssY+FN0nW+91KeGBuny/rFAGr/qOXhHEUAG0rcaqqFyew4GIROQLgTAN+h+Q/n4g1xmLptA8PhDo+B2ANwF0A5xvQPwC8A/CG5LZCMgvJrxgB/2ARuQ3gIYArkfTr5PKS5AePhEqqpQjMrC8iZwG8BXA1UztcT3Wf5G4mcOeOKUVglp+Nmn5C8nlDwKXXbKNYhEAgn28AVpSVe4vkJYuMShCYpTYROV0F7i8AR5UE9kge9whk3xlDEPgJ4JiSwF+SJ8YmMNfqisgWgItKAl9JXh5bQu5+P4gfA6gDU7EeVRJ6MXoQuza47WVE5FRVeV8DuJkh8BHAA5K/D0MaDb1wA8A6gFsREq6AvSL5ySIft7dEELcYwo7yJIB7AO4AuOCazKqt+A7gvSt0JP8cqlaiAaOaIPheMRa+Th7I5uZAJl3baUXMd5OQlUALpH7jhuOQZraUevemiAz6IguBtA92laUjmzoRUDVZB0Fl+HbaBFLDrdxcaMyx4iymUsNezWixazAbFBLfeqDRoqVX6QXt4iHZ+pL1gKVf6ZlEdjJdtxiWS63V03K2t1ddEM0EvB7Gpdi+f2KqJ3m53wNCo5g80NGiRT9bEihqXsXhSw8ojFR0y+Q98B+3YFxARYgyygAAAABJRU5ErkJggg=="/></a>
+          <a href="https://www.youtube.com/@webdev-official_channel" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAW9JREFUaEPtWAEOwiAMpC/TvUz3MufL0BowBIqMtQwwXWJMto717kpbCmbyCyb33yiA3gqqAqoAkwENISaB7Nf/XwFr7dXRhP+XDGXeppbRjXjhGdzbAICy+ZpkFXCO34wxR52rBZOzXwHgnnv4C4CV8kBonYVSgwRgrUXEyP5IF4bTEjuUAHCh8xjJ88CXRAUKwIjsewzTA0g2NKUAhk/vzJOL4GQftACwNkwA7QHAO2kjfY0y2S4ArPzvAfgYkAYSr0+FkCgApwbuKfyxa0sXAJJqdAUgAUQBlFqMmKHQXqLD7aKAhOOeiNMB9EijrFZihELGAmCMwZ691UluVyXmAijtc87z6QHsaqex5I96IpseQPlE5pqvEfcBOV7JTSWGC6Nchf85WpQuQgfTD07mkH1yQlecjbo2IDwjx+NF7vk5N1783D88WjzI1umvFRU43aPKDyqASsLEzVUBcUorF1QFKgkTN1cFxCmtXPAFxXCyMd8dJT0AAAAASUVORK5CYII="/></a> <a href="" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAr5JREFUaEPtWT1rFUEUPUfBRrAUBEFEECSVWAmKplGstLLU+A9SiIUImsJKBP+B2lpZaCnGziqViI3EkFKshJRed5bdx7x5mZl7Nzu7WXjThMDszDn3nvsx9xETX5w4fiwJjO3BpQcm5wERud6Adn+vAWj/78plE8AX9zHJZ9ZDTBISkc89AM5h3LAQURForO7AD7lURLIERMS59emQyL27Vkk6iUWXhoCMBL6+lpWeOhMY2fot7qSUkuykYjCA9TeqxOBk4rJZTKpRKUUJDGT9Oesm7hyNgB+A+9ULLYGojEp4YLUJvoXssY+FN0nW+91KeGBuny/rFAGr/qOXhHEUAG0rcaqqFyew4GIROQLgTAN+h+Q/n4g1xmLptA8PhDo+B2ANwF0A5xvQPwC8A/CG5LZCMgvJrxgB/2ARuQ3gIYArkfTr5PKS5AePhEqqpQjMrC8iZwG8BXA1UztcT3Wf5G4mcOeOKUVglp+Nmn5C8nlDwKXXbKNYhEAgn28AVpSVe4vkJYuMShCYpTYROV0F7i8AR5UE9kge9whk3xlDEPgJ4JiSwF+SJ8YmMNfqisgWgItKAl9JXh5bQu5+P4gfA6gDU7EeVRJ6MXoQuza47WVE5FRVeV8DuJkh8BHAA5K/D0MaDb1wA8A6gFsREq6AvSL5ySIft7dEELcYwo7yJIB7AO4AuOCazKqt+A7gvSt0JP8cqlaiAaOaIPheMRa+Th7I5uZAJl3baUXMd5OQlUALpH7jhuOQZraUevemiAz6IguBtA92laUjmzoRUDVZB0Fl+HbaBFLDrdxcaMyx4iymUsNezWixazAbFBLfeqDRoqVX6QXt4iHZ+pL1gKVf6ZlEdjJdtxiWS63V03K2t1ddEM0EvB7Gpdi+f2KqJ3m53wNCo5g80NGiRT9bEihqXsXhSw8ojFR0y+Q98B+3YFxARYgyygAAAABJRU5ErkJggg=="/></a>
       </section>
 
     <!-- Footer -->
